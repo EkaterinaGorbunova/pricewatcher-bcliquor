@@ -22,7 +22,7 @@ const Home = async () => {
                 alt="arrow-right"
                 width={16}
                 height={16}
-                style={{ width: "16px", height: "16px" }}
+                style={{ width: "16px", height: "auto" }}
               />
             </p>
 

@@ -24,10 +24,10 @@ const HeroCarousel = () => {
         showArrows={false}
         showStatus={false}
         renderIndicator={(onClickHandler, isSelected, index, label) => {
-          const defStyle = 'inline-block ml-2 w-2 h-2 cursor-pointer border border-gray-500 border-opacity-70 hover:border-gray-700 hover:border-opacity-80 opacity-50 rounded-full bg-white';
+          const defStyle = 'inline-block ml-2 w-2 h-2 cursor-pointer border border-gray-500 border-opacity-70 hover:border-gray-900 hover:border-opacity-90 rounded-full';
           return (
             <li
-              className={`${defStyle} ${isSelected ? 'opacity-30 bg-primary' : ''}`}
+              className={`${isSelected ? `${defStyle} opacity-30 bg-primary` : `${defStyle} opacity-50 bg-white` }`}
               onClick={onClickHandler}
               onKeyDown={onClickHandler}
               key={index}
