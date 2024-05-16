@@ -3,9 +3,9 @@ import Link from 'next/link'
 import React from 'react'
 
 const navIcons = [
-  { src: 'assets/icons/search.svg', alt: 'search' },
-  { src: 'assets/icons/black-heart.svg', alt: 'heart' },
-  { src: 'assets/icons/user.svg', alt: 'user' },
+  { src: '/assets/icons/search.svg', alt: 'search' },
+  { src: '/assets/icons/black-heart.svg', alt: 'heart' },
+  { src: '/assets/icons/user.svg', alt: 'user' },
 ]
 
 const Navbar = () => {
@@ -19,6 +19,7 @@ const Navbar = () => {
             width={27}
             height={27}
             alt='logo'
+            style={{ width: "27px", height: "27px" }}
           />
           <p className='nav-logo'>
             Price<span className='text-primary'>Watch</span>
@@ -33,6 +34,7 @@ const Navbar = () => {
               alt={icon.alt}
               width={28}
               height={28}
+              style={{ width: "28px", height: "28px" }}
               className="object-contain"
             />
           ))}

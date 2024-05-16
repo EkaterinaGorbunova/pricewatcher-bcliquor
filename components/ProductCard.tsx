@@ -16,6 +16,7 @@ const ProductCard = ({ product }: Props) => {
           alt={product.title ? product.title : ''}
           width={200}
           height={200}
+          style={{ width: "200px", height: "200px" }} 
           className='product-card_img'
         />
       </div>
@@ -24,7 +25,7 @@ const ProductCard = ({ product }: Props) => {
         <h3 className='product-title'>{product.title}</h3>
 
         <div className='flex justify-between'>
-          <p className='text-black opacity-50 text-lg capitalize'>
+          <p className='text-black opacity-60 text-lg capitalize'>
             {product.category}
           </p>
 

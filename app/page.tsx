@@ -15,7 +15,6 @@ const Home = async () => {
       <section className="px-6 md:px-20 py-24">
         <div className="flex max-xl:flex-col gap-16">
           <div className="flex flex-col justify-center"> 
-          <p></p>
             <p className="small-text">
               Unlock Savings Now:
               <Image 
@@ -23,17 +22,18 @@ const Home = async () => {
                 alt="arrow-right"
                 width={16}
                 height={16}
+                style={{ width: "16px", height: "16px" }}
               />
             </p>
 
-            <h1 className="head-text">
+            <h2 className="head-text">
               Unleash the Power of
               <span className="text-primary"> PriceWatch</span>
-            </h1>
+            </h2>
 
             <div className="paragraph-text pt-4">
               <p className="pb-4">
-              Shop smarter at <span className="font-semibold">BCLiquor Store</span>: Track Prices, Compare and Save
+                Shop smarter at <span className="font-semibold">BCLiquor Store</span>: Track Prices, Compare and Save
               </p>
               <h3 className="pb-1">How to Get Started:</h3>
               <ul className="space-y-1 list-inside pb-4">
@@ -44,6 +44,7 @@ const Home = async () => {
                     width={16}
                     height={16}
                     className="me-2 mt-2"
+                    style={{ width: "16px", height: "16px" }}
                   />
                   Enter product link from BCLiquor Store that you want to track
                 </li>
@@ -54,6 +55,7 @@ const Home = async () => {
                     width={16}
                     height={16}
                     className="me-2 mt-2"
+                    style={{ width: "16px", height: "16px" }}
                   />
                   Receive email notifications when your favorite drinks are on sale
                 </li>

@@ -73,6 +73,7 @@ const Modal = ({ productId }: Props) => {
                         alt="logo"
                         width={28}
                         height={28}
+                        style={{ width: "28px", height: "28px" }}
                       />
                     </div>
 
@@ -81,6 +82,7 @@ const Modal = ({ productId }: Props) => {
                       alt="close"
                       width={24}
                       height={24}
+                      style={{ width: "24px", height: "24px" }}
                       className="cursor-pointer"
                       onClick={closeModal}
                     />
@@ -105,6 +107,7 @@ const Modal = ({ productId }: Props) => {
                       alt='mail'
                       width={18}
                       height={18}
+                      style={{ width: "18px", height: "18px" }}
                     />
 
                     <input 

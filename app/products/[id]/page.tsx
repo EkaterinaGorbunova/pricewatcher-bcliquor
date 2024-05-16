@@ -26,8 +26,9 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           <Image 
             src={product.image}
             alt={product.title ? product.title : 'product image'}
-            width={580}
-            height={400}
+            width={500}
+            height={500}
+            style={{ width: "500px", height: "auto" }}
             className="mx-auto"
           />
         </div>
@@ -55,6 +56,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                   alt="heart"
                   width={20}
                   height={20}
+                  style={{ width: "20px", height: "20px" }}
                 />
 
                 <p className="text-base font-semibold text-[#D46F77]">
@@ -68,6 +70,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                   alt="bookmark"
                   width={20}
                   height={20}
+                  style={{ width: "20px", height: "20px" }}
                 />
               </div>
 
@@ -77,6 +80,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                   alt="share"
                   width={20}
                   height={20}
+                  style={{ width: "20px", height: "20px" }}
                 />
               </div>
             </div>
@@ -100,6 +104,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                     alt="star"
                     width={16}
                     height={16}
+                    style={{ width: "16px", height: "16px" }}
                   />
                   <p className="text-sm text-primary-orange font-semibold">
                     {product.stars || '25'}
@@ -112,6 +117,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                     alt="comment"
                     width={16}
                     height={16}
+                    style={{ width: "16px", height: "16px" }}
                   />
                   <p className="text-sm text-secondary font-semibold">
                     {product.reviewsCount} Reviews
@@ -172,6 +178,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             alt="check"
             width={22}
             height={22}
+            style={{ width: "22px", height: "22px" }}
           />
 
           <Link href="/" className="text-base text-white">
