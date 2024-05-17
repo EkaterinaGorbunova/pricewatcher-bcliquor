@@ -36,7 +36,7 @@ const Modal = ({ productId }: Props) => {
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" onClose={closeModal} className="dialog-container">
+        <Dialog as="div" onClose={closeModal} className="dialog-container" title="headlessui-dialog">
           <div className="min-h-screen px-4 text-center">
             <Transition.Child
               as={Fragment}

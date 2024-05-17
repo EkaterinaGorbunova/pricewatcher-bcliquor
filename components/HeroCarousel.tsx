@@ -35,7 +35,7 @@ const HeroCarousel = () => {
               tabIndex={0}
               aria-label={`${label} ${index + 1}`}
             >
-              {/* {"cust " + index} */}
+              {/* Slider dots. No content here.*/}
             </li>
           );
         }}
