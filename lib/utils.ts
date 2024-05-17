@@ -93,3 +93,15 @@ export const formatNumber = (num: number = 0) => {
     maximumFractionDigits: 0,
   });
 };
+
+// Calculate % of buyers who recommended this product (approximately)
+export const estimateRecommendationRate = (reviewsCount: number, averageStars: number) => {
+  if (typeof reviewsCount !== "number" || typeof averageStars !== "number") {
+    throw new Error("Invalid arguments. reviewsCount and averageStars must be numbers.");
+  }
+
+  let totalRatingPoints = reviewsCount * averageStars;
+  let estimatedBuyers = Math.round(totalRatingPoints);
+
+  return estimatedBuyers;
+}

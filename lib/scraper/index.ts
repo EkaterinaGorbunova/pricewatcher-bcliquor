@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-import { extractCurrency, extractPrice } from '../utils';
+import { extractCurrency, extractPrice, estimateRecommendationRate } from '../utils';
 
 export async function scrapeAmazonProduct(url: string) {
   if (!url) return;
@@ -114,6 +114,24 @@ export async function scrapeAmazonProduct(url: string) {
       console.log('JSON-LD script tag not found.');
     }
 
+    // Extract the ratingValue from script tag
+    let ratingValue = null;
+    let reviewCount = null;
+    const scriptSelector = $('script[type="application/ld+json"]');
+    // Check if script exists and has content
+    if (scriptSelector.length > 0) {
+      const jsonData = JSON.parse($('script[type="application/ld+json"]').text());
+
+      ratingValue = jsonData[0].aggregateRating.ratingValue;
+      console.log("Product rating:", ratingValue);
+
+      reviewCount = jsonData[0].aggregateRating.reviewCount;
+      console.log("Product review:", reviewCount);
+    }
+
+    const recommendationRate = estimateRecommendationRate(reviewCount, ratingValue)
+    console.log(`Estimated percentage of buyers recommending the product: ${recommendationRate.toFixed(2)}%`);
+
     // Extract the description
     const descriptionText =
       $('meta[property="product:tastingDescription"]').attr('content') ||
@@ -132,8 +150,9 @@ export async function scrapeAmazonProduct(url: string) {
       priceHistory: [],
       discountRate: Number(discountRate) || 5,
       category: category || '',
-      reviewsCount: 100,
-      stars: 4.5,
+      reviewsCount: reviewCount || 100,
+      stars: ratingValue || 4.5,
+      recommendationRate: recommendationRate || 93,
       isOutOfStock: outOfStock,
       description,
       lowestPrice: Number(currentPrice) || Number(originalPrice),

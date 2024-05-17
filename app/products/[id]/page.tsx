@@ -1,4 +1,3 @@
-// import Modal from "@/components/Modal";
 import Modal from "@/components/Modal";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductCard from "@/components/ProductCard";
@@ -127,8 +126,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
 
               <p className="text-sm text-black opacity-50">
-                <span className="text-primary-green font-semibold">93% </span> of
-                buyers have recommeded this.
+                <span className="text-primary-green font-semibold">{product.recommendationRate}%</span> of
+                buyers have recommended this
               </p>
             </div>
           </div>
