@@ -29,6 +29,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             width={500}
             height={500}
             style={{ width: "500px", height: "auto" }}
+            priority={true}
             className="mx-auto"
           />
         </div>
