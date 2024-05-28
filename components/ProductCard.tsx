@@ -17,7 +17,7 @@ const ProductCard = ({ product }: Props) => {
           width={200}
           height={200}
           style={{ width: "200px", height: "200px" }} 
-          className='product-card_img'
+          className='mx-auto product-card_img'
         />
       </div>
 
