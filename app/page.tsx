@@ -46,7 +46,14 @@ const Home = async () => {
                     className="me-2 mt-2"
                     style={{ width: "16px", height: "16px" }}
                   />
-                  Enter product link from BCLiquor Store that you want to track
+                  <p>Enter product link from
+                    <a href="https://www.bcliquorstores.com" target="_blank"
+                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      >
+                        {' '}bcliquorstores.com{' '}
+                    </a>
+                    that you want to track
+                  </p>
                 </li>
                 <li className="flex items-start">
                   <Image 

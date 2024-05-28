@@ -1,4 +1,4 @@
-##### This project was inspired by this tutorial - https://youtu.be/lh9XVGv6BHs?si=EpKjwsvZ7dDOQ26o
+###### This project was inspired by this tutorial - https://youtu.be/lh9XVGv6BHs?si=EpKjwsvZ7dDOQ26o
 
 # Getting Started
 
