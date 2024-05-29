@@ -99,9 +99,23 @@ export const estimateRecommendationRate = (reviewsCount: number, averageStars: n
   if (typeof reviewsCount !== "number" || typeof averageStars !== "number") {
     throw new Error("Invalid arguments. reviewsCount and averageStars must be numbers.");
   }
+  let estimatedBuyers
 
-  let totalRatingPoints = reviewsCount * averageStars;
-  let estimatedBuyers = Math.round(totalRatingPoints);
+  if (averageStars >= 4.8) {
+    estimatedBuyers = 95;
+} else if (averageStars >= 4.5) {
+  estimatedBuyers = 90 + (averageStars - 4.5) / 0.3 * 5; // 90% to 95%
+} else if (averageStars >= 4.0) {
+  estimatedBuyers = 70 + (averageStars - 4.0) / 0.5 * 20; // 70% to 90%
+} else if (averageStars >= 3.5) {
+  estimatedBuyers = 50 + (averageStars - 3.5) / 0.5 * 20; // 50% to 70%
+} else if (averageStars >= 3.0) {
+  estimatedBuyers = 30 + (averageStars - 3.0) / 0.5 * 20; // 30% to 50%
+} else if (averageStars >= 2.5) {
+  estimatedBuyers = 20 + (averageStars - 2.5) / 0.5 * 10; // 20% to 30%
+} else {
+  estimatedBuyers = 10 + (averageStars - 2.0) / 0.5 * 10; // 10% to 20%
+}
 
-  return estimatedBuyers;
+  return Math.round(estimatedBuyers);
 }
