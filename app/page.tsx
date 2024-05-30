@@ -48,7 +48,7 @@ const Home = async () => {
                   />
                   <p>Enter product link from
                     <a href="https://www.bcliquorstores.com" target="_blank"
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                        className="font-medium text-blue-700 dark:text-blue-600 hover:underline"
                       >
                         {' '}bcliquorstores.com{' '}
                     </a>
