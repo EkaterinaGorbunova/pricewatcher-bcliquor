@@ -46,12 +46,12 @@ const Home = async () => {
                     className="me-2 mt-2"
                     style={{ width: "16px", height: "16px" }}
                   />
-                  <p>Enter product link from
+                  <p>Enter product link from{' '}
                     <a href="https://www.bcliquorstores.com" target="_blank"
                         className="font-medium text-blue-700 dark:text-blue-600 hover:underline"
                       >
-                        {' '}bcliquorstores.com{' '}
-                    </a>
+                        bcliquorstores.com
+                    </a>{' '}
                     that you want to track
                   </p>
                 </li>
