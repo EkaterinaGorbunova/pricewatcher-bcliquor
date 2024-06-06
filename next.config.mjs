@@ -12,9 +12,6 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'm.media-amazon.com',
-      },
-      {
         hostname: 'www.bcliquorstores.com',
       },
     ],
