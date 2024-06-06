@@ -7,7 +7,7 @@ const isValidBCLiquorProductURL = (url: string) => {
   try {
     const parsedURL = new URL(url);
     const hostname = parsedURL.hostname;
-    console.log('hostname:', hostname);
+    // console.log('hostname:', hostname);
 
     if (
       hostname.includes('bcliquorstores.com')
