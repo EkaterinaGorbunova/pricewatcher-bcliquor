@@ -92,6 +92,7 @@ const transporter = nodemailer.createTransport({
 })
 
 export const sendEmail = async (emailContent: EmailContent, sendTo: string[]) => {
+  console.log('sendEmail RAN')
   const mailOptions = {
     from: 'dev_hub@outlook.com',
     to: sendTo,

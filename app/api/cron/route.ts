@@ -6,9 +6,9 @@ import Product from "@/lib/models/product.model";
 import { scrapeBCLiquorProduct } from "@/lib/scraper";
 import { generateEmailBody, sendEmail } from "@/lib/nodemailer";
 
-export const maxDuration = 10; // This function can run for a maximum of 300 seconds
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+export const maxDuration = 10; // This function can run for a maximum of 300 seconds for a data fetching function (specifically, a function within API route)
+export const dynamic = "force-dynamic"; // fetch data on the server-side during each request, regardless of whether there's cached data available
+export const revalidate = 0; // data will only be refetched when a new request comes in
 
 export async function GET(request: Request) {
   try {
