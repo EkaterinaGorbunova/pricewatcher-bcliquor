@@ -1,49 +1,49 @@
-###### This project was inspired by this tutorial - https://youtu.be/lh9XVGv6BHs?si=EpKjwsvZ7dDOQ26o
 
-# Getting Started
+# PriceWatcher - BC Liquor Store Price Tracker
 
-## Create NextJS project
+![PriceWatcher BC Liquor](public/assets/images/home.png)
 
-```bash
-npx create-next-app@latest ./
-√ Would you like to use TypeScript? ... No / Yes
-√ Would you like to use ESLint? ... No / Yes
-√ Would you like to use Tailwind CSS? ... No / Yes
-√ Would you like to use `src/` directory? ... No / Yes
-√ Would you like to use App Router? (recommended) ... No / Yes
-√ Would you like to customize the default import alias (@/*)? ... No / Yes
-```
+A full-stack web app that tracks product prices on the BC Liquor Store website and sends email alerts when prices drop, products go on sale, or items come back in stock.
 
-## Run the development server:
+## Features
 
-```bash
-npm run dev
-```
+- **Product tracking** - paste any `bcliquorstores.com` product URL to start tracking it
+- **Price history** - stores a full timeline of price changes with lowest, highest, and average stats
+- **Email alerts** - get notified automatically when:
+  - A product hits its all-time lowest price
+  - A product comes back in stock
+  - A discount exceeds 40%
+  - You subscribe to a product (welcome confirmation)
+- **Product details** - category, star rating, review count, estimated recommendation rate, and tasting description
+- **Automated scraping** - a cron endpoint re-scrapes all tracked products on a schedule without manual intervention
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-# Stack
-## Bright data
-https://brightdata.com/products/web-unlocker
+| Layer | Tool |
+|---|---|
+| Framework | Next.js 14 (App Router, Server Actions) |
+| Language | TypeScript |
+| Database | MongoDB Atlas + Mongoose |
+| Scraping | Axios + Cheerio |
+| Proxy | BrightData Web Unlocker |
+| Email | Nodemailer + Microsoft Outlook SMTP |
+| Styling | Tailwind CSS |
+| Deployment | Vercel |
 
-## MongoDB
-https://account.mongodb.com/account/login
+## Challenges & Trade-offs
 
-## Nodemailer
-https://www.nodemailer.com/
+### BC Liquor Store blocks scrapers
+The site actively blocks automated requests. Solved by routing all scraping through **BrightData's Web Unlocker** proxy, which handles IP rotation and browser fingerprinting. Trade-off: adds latency per scrape and has a usage cost - acceptable given the low scrape frequency (hourly cron).
 
-## Microsoft Outlook
-https://www.microsoft.com/en-ca/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook
+### No direct "recommendation rate" metric
+The BC Liquor Store shows star ratings and review counts, but no "% recommended" figure. Implemented an **estimation formula** that maps average star rating to an approximate recommendation percentage using tiered linear interpolation. It's an approximation, not ground truth - good enough for UX context, not for analytics.
 
-## NextJS Cron Job
-https://vercel.com/guides/how-to-setup-cron-jobs-on-vercel
+### HTML entities in category names
+The site encodes some category names as HTML entities in structured data (e.g. `COOLERS &amp; CIDERS`). Added explicit decoding in the scraper to normalize these before saving to the database.
 
-cron-job.org (free)
-https://console.cron-job.org/login
+### Vercel's 10-second function limit
+The free Vercel plan caps serverless function execution at 10 seconds. The cron endpoint scrapes products serially with `Promise.all`, so the limit is only hit if many products are tracked simultaneously. Trade-off: no retry logic on individual failures - if one scrape times out, the rest of that batch may not complete.
 
-Add endpoint (website URL) on cron Dashboard - https://pricewise-navigator.vercel.app/api/cron
-
-Click "TEST RUN" button -> START TEST RUN
-
-
+### Price field fallback
+Some products have a sale price and a regular price; others only have one. Scraped `currentPrice` and `originalPrice` fall back to each other when one is missing, so the UI always has something to display without crashing.
 
