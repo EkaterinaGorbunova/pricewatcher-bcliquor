@@ -172,8 +172,13 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           </div>
         </div>
 
-        <button className="btn w-fit mx-auto flex items-center justify-center gap-3 min-w-[200px]">
-          <Image 
+        <a
+          href={product.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn w-fit mx-auto flex items-center justify-center gap-3 min-w-[200px]"
+        >
+          <Image
             src="/assets/icons/bag.svg"
             alt="check"
             width={22}
@@ -181,10 +186,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             style={{ width: "22px", height: "22px" }}
           />
 
-          <Link href="/" className="text-base text-white">
-            Buy Now
-          </Link>
-        </button>
+          <span className="text-base text-white">Buy Now</span>
+        </a>
       </div>
 
       {similarProducts && similarProducts?.length > 0 && (
